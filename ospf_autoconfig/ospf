@@ -1,0 +1,15 @@
+feature ospf
+router ospf 1
+router-id {{router_id}}
+passive-interface default
+network {{interface_ip}} 0.0.0.0 area 0
+area 0 authentication message-digest
+exit
+int {{intf_id}}
+no ip ospf passive-interface
+exit
+interface {{intf_id}}
+description "OSPF connection"
+ip ospf authentication-key {{random_string}}
+ip address {{ip_address}}/30
+exit
