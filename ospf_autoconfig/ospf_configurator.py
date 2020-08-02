@@ -36,7 +36,7 @@ def check_if_ospf_config_exists(output):
 
 
 def generate_template():
-    template = Template(open('ospf').read())
+    template = Template(open('ospf_autoconfig/ospf').read())
     return template
 
 
@@ -70,7 +70,7 @@ def configure_device(interface, conn):
 
 
 def get_devices():
-    with open('devices_list.txt', "r") as file:
+    with open('ospf_autoconfig/devices_list.txt', "r") as file:
         devices_list = file.read()
     return devices_list
 
